@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
 class Node
-  atr_reader :coords
+  attr_accessor :next_moves
+  attr_reader :coords
 
   def initialize(coords)
     @coords = coords
-    @next_moves = {}
+    @next_moves = []
   end
 end
