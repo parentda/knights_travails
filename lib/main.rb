@@ -16,7 +16,8 @@ def knight_moves(starting_position, ending_position)
   moves_tree = Tree.new(starting_position)
   board.visited(starting_position)
 
-  generate_moves(starting_position, ending_position, board, moves_tree)
+  path = generate_moves(starting_position, ending_position, board, moves_tree)
+  display_path(path)
 end
 
 def generate_moves(starting_position, ending_position, board, tree)
@@ -35,4 +36,9 @@ def generate_moves(starting_position, ending_position, board, tree)
       queue << next_move
     end
   end
+end
+
+def display_path(array)
+  puts 'The shortest path is:'
+  array.each { |pair| p pair }
 end
