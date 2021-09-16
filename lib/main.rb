@@ -14,7 +14,7 @@ def knight_moves(starting_position, ending_position)
   end
 
   moves_tree = Tree.new(starting_position)
-  board.visited(starting_position)
+  board.visit(starting_position)
 
   path = generate_moves(starting_position, ending_position, board, moves_tree)
   display_path(path)
@@ -29,7 +29,7 @@ def generate_moves(starting_position, ending_position, board, tree)
       next_move = [curr_move, shift].transpose.map(&:sum)
       next unless board.valid_position?(next_move)
 
-      board.visited(next_move)
+      board.visit(next_move)
       tree.insert(next_move, curr_move)
       return tree.backtrack(next_move) if next_move == ending_position
 
