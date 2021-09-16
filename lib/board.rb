@@ -2,9 +2,11 @@
 
 class Board
   attr_accessor :positions
+  attr_reader :size
 
-  def initialize
-    @positions = Array.new(8) { Array.new(8, 0) }
+  def initialize(size)
+    @size = size
+    @positions = Array.new(@size) { Array.new(@size, 0) }
   end
 
   def display
