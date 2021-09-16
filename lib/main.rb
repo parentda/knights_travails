@@ -15,12 +15,12 @@ def knight_moves(starting_position, ending_position)
 
   moves_tree = Tree.new(starting_position)
   board.visited(starting_position)
-  queue = [] << starting_position
 
-  generate_moves(ending_position, board, moves_tree, queue)
+  generate_moves(starting_position, ending_position, board, moves_tree)
 end
 
-def generate_moves(ending_position, board, tree, queue)
+def generate_moves(starting_position, ending_position, board, tree)
+  queue = [] << starting_position
   until queue.empty?
     curr_move = queue.shift
 
