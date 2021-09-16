@@ -40,5 +40,5 @@ end
 
 def display_path(array)
   puts 'The shortest path is:'
-  array.each { |pair| p pair }
+  array.each { |coords| p coords }
 end
