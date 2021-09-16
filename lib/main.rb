@@ -13,15 +13,16 @@ def knight_moves(starting_position, ending_position)
     return puts 'Invalid coordinates'
   end
 
-  moves_tree = Tree.new(starting_position)
   board.visit(starting_position)
 
-  path = generate_moves(starting_position, ending_position, board, moves_tree)
+  path = generate_moves(starting_position, ending_position, board)
   display_path(path)
 end
 
-def generate_moves(starting_position, ending_position, board, tree)
+def generate_moves(starting_position, ending_position, board)
+  moves_tree = Tree.new(starting_position)
   queue = [] << starting_position
+
   until queue.empty?
     curr_move = queue.shift
 
@@ -30,8 +31,8 @@ def generate_moves(starting_position, ending_position, board, tree)
       next unless board.valid_position?(next_move)
 
       board.visit(next_move)
-      tree.insert(next_move, curr_move)
-      return tree.backtrack(next_move) if next_move == ending_position
+      moves_tree.insert(next_move, curr_move)
+      return moves_tree.backtrack(next_move) if next_move == ending_position
 
       queue << next_move
     end
