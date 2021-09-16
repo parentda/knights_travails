@@ -18,7 +18,7 @@ class Board
       @positions[coords[0]][coords[1]].zero?
   end
 
-  def visited(coords)
+  def visit(coords)
     @positions[coords[0]][coords[1]] = 1
   end
 end
